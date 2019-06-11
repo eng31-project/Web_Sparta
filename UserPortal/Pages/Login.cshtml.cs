@@ -15,11 +15,11 @@ namespace UserPortal.Pages
         public string  test;
         public IActionResult OnPost()
         {
-            /*if (db.Users.Where(c => c.Email == Request.Form["email"]).Count() != 0 && db.Users.Where(c => c.Email == Request.Form["email"]).First().Password == Request.Form["password"])
+            if (db.Users.Where(c => c.Email == Request.Form["email"]).Count() != 0 && db.Users.Where(c => c.Email == Request.Form["email"]).First().Password == Request.Form["password"])
             {
                 HttpContext.Session.SetString("Test", "1");
                 return RedirectToPage("/Contact");
-            }*/
+            }
             return Page();
         }
     }
