@@ -14,7 +14,8 @@ namespace UserPortal.Models
         [StringLength(50)]
         public string LastName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Field can't be empty")]
+        [RegularExpression(@"^([\w\.\-]+)@([spartaglobal]+)((\.(com))+)$")]
         [StringLength(50)]
         public string Email { get; set; }
 
@@ -28,5 +29,6 @@ namespace UserPortal.Models
         public virtual Cohort Cohort { get; set; }
 
         public virtual Role Role { get; set; }
+
     }
 }
