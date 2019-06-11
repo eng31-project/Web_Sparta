@@ -58,10 +58,3 @@ INSERT INTO Users (UsersID ,FirstName, LastName, Email, Password, CohortID, Role
 SET IDENTITY_INSERT Users OFF
 
 
-
-
-
-
-
-
-
