@@ -55,4 +55,10 @@ namespace UserPortal
             app.UseMvc();
         }
     }
+
+    public class Global
+    {
+        public static bool _login = false;
+    }
 }
+
