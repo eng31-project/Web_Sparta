@@ -19,6 +19,7 @@ namespace UserPortal.Models
         [StringLength(50)]
         public string Email { get; set; }
 
+
         [Required]
         public string Password;
 
