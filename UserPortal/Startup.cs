@@ -23,7 +23,7 @@ namespace UserPortal
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSession(options => {
-                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.IdleTimeout = System.TimeSpan.FromMinutes(30);
             });
             services.AddMemoryCache();
             services.AddMvc();
