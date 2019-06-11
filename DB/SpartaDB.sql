@@ -43,7 +43,7 @@ INSERT INTO Specialisation(SpecialisationID , SpecialisationName) VALUES (1, 'C#
 SET IDENTITY_INSERT Specialisation OFF
 
 SET IDENTITY_INSERT Cohort ON
-INSERT INTO Cohort(CohortName, SpecialisationID  ) VALUES (1,'Engineering-31',1),(2, 'Engineering-32',3),(3, 'Data-2',2) 
+INSERT INTO Cohort(CohortID,CohortName, SpecialisationID  ) VALUES (1,'Engineering-31',1),(2, 'Engineering-32',3),(3, 'Data-2',2) 
 SET IDENTITY_INSERT Cohort OFF
 
 
