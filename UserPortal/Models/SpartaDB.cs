@@ -1,7 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
-
-
+﻿using Microsoft.EntityFrameworkCore;
 namespace UserPortal.Models
 {
     public class SpartaDB : DbContext
@@ -17,8 +14,7 @@ namespace UserPortal.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string path = System.IO.Path.Combine(System.Environment.CurrentDirectory, "SpartaDB.db");
-            optionsBuilder.UseSqlServer(@"Server=tcp:spartaportal.database.windows.net,1433;Initial Catalog=SpartaDB;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            optionsBuilder.UseSqlServer(@"Server=tcp:spartaportal.database.windows.net,1433;Initial Catalog=SpartaDB;Persist Security Info=False;User ID={portaladmin};Password={Sparta2019};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
