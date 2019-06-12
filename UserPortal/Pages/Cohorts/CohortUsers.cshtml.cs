@@ -9,36 +9,36 @@ using UserPortal.Models;
 
 namespace UserPortal.Pages.Cohorts
 {
-    public class DetailsModel : PageModel
+    public class CohortUsersModel : PageModel
     {
         private readonly UserPortal.Models.SpartaDB _context;
-        public IList<User> User { get; set; }
-        public DetailsModel(UserPortal.Models.SpartaDB context)
+
+        public CohortUsersModel(UserPortal.Models.SpartaDB context)
         {
             _context = context;
         }
+        public IList<User> User { get; set; }
 
-        public Cohort Cohort { get; set; }
-        public User Users { get; set; }
+       // public User User { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
-            }
+            } 
+            User = await _context.Users
+                .Include(u => u.Cohort)
+                .Include(u => u.Role).ToListAsync();
+            
 
-            Cohort = await _context.Cohorts
-                .Include(c => c.Specialisation).FirstOrDefaultAsync(m => m.CohortID == id);
-            //Users = await _context.Users
-            //   .Include(c => c.CohortID).FirstOrDefaultAsync(m => m.CohortID == id);
-
-
-            if (Cohort == null)
+            if (User == null)
             {
                 return NotFound();
             }
             return Page();
         }
+          
+   
     }
 }
