@@ -34,10 +34,7 @@ namespace UserPortal
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<SpartaDB>(options => options.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;" +
-                                                                            "Database=SpartaDB;" +
-                                                                            "Trusted_Connection=True;" +
-                                                                            "MultipleActiveResultSets=true"));
+            services.AddDbContext<SpartaDB>(options => options.UseSqlServer(@"Server=tcp:spartaportal.database.windows.net,1433;Initial Catalog=Northwind;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -67,4 +64,3 @@ namespace UserPortal
         }
     }
 }
-
