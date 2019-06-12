@@ -2,9 +2,9 @@
 
 namespace UserPortal.Models
 { 
-    public partial class Users
+    public partial class User
     {
-        public int UsersID { get; set; }
+        public int UserID { get; set; }
 
         [Required]
         [StringLength(50)]

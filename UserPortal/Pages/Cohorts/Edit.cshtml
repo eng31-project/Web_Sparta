@@ -1,0 +1,40 @@
+﻿@page
+@model UserPortal.Pages.Cohorts.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Cohort</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Cohort.CohortID" />
+            <div class="form-group">
+                <label asp-for="Cohort.CohortName" class="control-label"></label>
+                <input asp-for="Cohort.CohortName" class="form-control" />
+                <span asp-validation-for="Cohort.CohortName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cohort.SpecialisationID" class="control-label"></label>
+                <select asp-for="Cohort.SpecialisationID" class="form-control" asp-items="ViewBag.SpecialisationID"></select>
+                <span asp-validation-for="Cohort.SpecialisationID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

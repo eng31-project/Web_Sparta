@@ -6,10 +6,10 @@ namespace UserPortal.Models
 {
     public class SpartaDB : DbContext
     {
-        public DbSet<Users> Users { get; set; }
-        public DbSet<Role> Role { get; set; }
-        public DbSet<Cohort> Cohort { get; set; }
-        public DbSet<Specialisation> Specialisation { get; set; } 
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Cohort> Cohorts { get; set; }
+        public DbSet<Specialisation> Specialisations { get; set; } 
 
         public SpartaDB() { }
 
