@@ -20,7 +20,7 @@ namespace UserPortal.Pages.Cohorts
 
         public IActionResult OnGet()
         {
-        ViewData["SpecialisationID"] = new SelectList(_context.Specialisation, "SpecialisationID", "SpecialisationName");
+        ViewData["SpecialisationID"] = new SelectList(_context.Specialisations, "SpecialisationID", "SpecialisationName");
             return Page();
         }
 
@@ -34,7 +34,7 @@ namespace UserPortal.Pages.Cohorts
                 return Page();
             }
 
-            _context.Cohort.Add(Cohort);
+            _context.Cohorts.Add(Cohort);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

@@ -33,7 +33,7 @@ namespace UserPortal.Pages.Specialisations
                 return Page();
             }
 
-            _context.Specialisation.Add(Specialisation);
+            _context.Specialisations.Add(Specialisation);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

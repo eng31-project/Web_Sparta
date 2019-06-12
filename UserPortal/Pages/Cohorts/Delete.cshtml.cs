@@ -28,7 +28,7 @@ namespace UserPortal.Pages.Cohorts
                 return NotFound();
             }
 
-            Cohort = await _context.Cohort
+            Cohort = await _context.Cohorts
                 .Include(c => c.Specialisation).FirstOrDefaultAsync(m => m.CohortID == id);
 
             if (Cohort == null)
@@ -45,11 +45,11 @@ namespace UserPortal.Pages.Cohorts
                 return NotFound();
             }
 
-            Cohort = await _context.Cohort.FindAsync(id);
+            Cohort = await _context.Cohorts.FindAsync(id);
 
             if (Cohort != null)
             {
-                _context.Cohort.Remove(Cohort);
+                _context.Cohorts.Remove(Cohort);
                 await _context.SaveChangesAsync();
             }
 

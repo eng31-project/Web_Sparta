@@ -29,14 +29,14 @@ namespace UserPortal.Pages.Cohorts
                 return NotFound();
             }
 
-            Cohort = await _context.Cohort
+            Cohort = await _context.Cohorts
                 .Include(c => c.Specialisation).FirstOrDefaultAsync(m => m.CohortID == id);
 
             if (Cohort == null)
             {
                 return NotFound();
             }
-           ViewData["SpecialisationID"] = new SelectList(_context.Specialisation, "SpecialisationID", "SpecialisationName");
+           ViewData["SpecialisationID"] = new SelectList(_context.Specialisations, "SpecialisationID", "SpecialisationName");
             return Page();
         }
 
@@ -70,7 +70,7 @@ namespace UserPortal.Pages.Cohorts
 
         private bool CohortExists(int id)
         {
-            return _context.Cohort.Any(e => e.CohortID == id);
+            return _context.Cohorts.Any(e => e.CohortID == id);
         }
     }
 }

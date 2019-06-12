@@ -22,7 +22,7 @@ namespace UserPortal.Pages.Cohorts
 
         public async Task OnGetAsync()
         {
-            Cohort = await _context.Cohort
+            Cohort = await _context.Cohorts
                 .Include(c => c.Specialisation).ToListAsync();
         }
     }

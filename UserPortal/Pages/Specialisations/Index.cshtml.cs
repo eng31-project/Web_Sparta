@@ -22,7 +22,7 @@ namespace UserPortal.Pages.Specialisations
 
         public async Task OnGetAsync()
         {
-            Specialisation = await _context.Specialisation.ToListAsync();
+            Specialisation = await _context.Specialisations.ToListAsync();
         }
     }
 }

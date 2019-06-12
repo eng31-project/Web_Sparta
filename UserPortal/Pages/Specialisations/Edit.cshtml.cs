@@ -29,7 +29,7 @@ namespace UserPortal.Pages.Specialisations
                 return NotFound();
             }
 
-            Specialisation = await _context.Specialisation.FirstOrDefaultAsync(m => m.SpecialisationID == id);
+            Specialisation = await _context.Specialisations.FirstOrDefaultAsync(m => m.SpecialisationID == id);
 
             if (Specialisation == null)
             {
@@ -68,7 +68,7 @@ namespace UserPortal.Pages.Specialisations
 
         private bool SpecialisationExists(int id)
         {
-            return _context.Specialisation.Any(e => e.SpecialisationID == id);
+            return _context.Specialisations.Any(e => e.SpecialisationID == id);
         }
     }
 }

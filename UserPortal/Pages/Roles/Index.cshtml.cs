@@ -22,7 +22,7 @@ namespace UserPortal.Pages.Roles
 
         public async Task OnGetAsync()
         {
-            Role = await _context.Role.ToListAsync();
+            Role = await _context.Roles.ToListAsync();
         }
     }
 }

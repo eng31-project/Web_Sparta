@@ -29,7 +29,7 @@ namespace UserPortal.Pages.Roles
                 return NotFound();
             }
 
-            Role = await _context.Role.FirstOrDefaultAsync(m => m.RoleID == id);
+            Role = await _context.Roles.FirstOrDefaultAsync(m => m.RoleID == id);
 
             if (Role == null)
             {
@@ -68,7 +68,7 @@ namespace UserPortal.Pages.Roles
 
         private bool RoleExists(int id)
         {
-            return _context.Role.Any(e => e.RoleID == id);
+            return _context.Roles.Any(e => e.RoleID == id);
         }
     }
 }

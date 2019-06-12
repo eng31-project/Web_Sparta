@@ -33,7 +33,7 @@ namespace UserPortal.Pages.Roles
                 return Page();
             }
 
-            _context.Role.Add(Role);
+            _context.Roles.Add(Role);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

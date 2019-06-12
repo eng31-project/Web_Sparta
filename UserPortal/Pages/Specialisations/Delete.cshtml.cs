@@ -28,7 +28,7 @@ namespace UserPortal.Pages.Specialisations
                 return NotFound();
             }
 
-            Specialisation = await _context.Specialisation.FirstOrDefaultAsync(m => m.SpecialisationID == id);
+            Specialisation = await _context.Specialisations.FirstOrDefaultAsync(m => m.SpecialisationID == id);
 
             if (Specialisation == null)
             {
@@ -44,11 +44,11 @@ namespace UserPortal.Pages.Specialisations
                 return NotFound();
             }
 
-            Specialisation = await _context.Specialisation.FindAsync(id);
+            Specialisation = await _context.Specialisations.FindAsync(id);
 
             if (Specialisation != null)
             {
-                _context.Specialisation.Remove(Specialisation);
+                _context.Specialisations.Remove(Specialisation);
                 await _context.SaveChangesAsync();
             }
 

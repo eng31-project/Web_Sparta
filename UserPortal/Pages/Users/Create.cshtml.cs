@@ -20,8 +20,8 @@ namespace UserPortal.Pages.Users
 
         public IActionResult OnGet()
         {
-        ViewData["CohortID"] = new SelectList(_context.Cohort, "CohortID", "CohortID");
-        ViewData["RoleID"] = new SelectList(_context.Role, "RoleID", "RoleName");
+        ViewData["CohortID"] = new SelectList(_context.Cohorts, "CohortID", "CohortID");
+        ViewData["RoleID"] = new SelectList(_context.Roles, "RoleID", "RoleName");
             return Page();
         }
 
