@@ -6,7 +6,7 @@
 }
 
 <h2>Users</h2>
-<hr\></hr\>
+<hr />
 <p>
     <a asp-page="Create">Create New</a>
 </p>
@@ -44,7 +44,7 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cohort.CohortID)
+                @Html.DisplayFor(modelItem => item.Cohort.CohortName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Role.RoleName)
