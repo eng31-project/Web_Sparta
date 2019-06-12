@@ -24,3 +24,8 @@ steps:
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Build Artifacts'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)/DB/SpartaDB.sql' 
+    artifactName: 'SQL Script' 
