@@ -20,13 +20,13 @@ namespace UserPortal.Pages.Users
 
         public IActionResult OnGet()
         {
-        ViewData["CohortID"] = new SelectList(_context.Cohorts, "CohortID", "CohortID");
+        ViewData["CohortID"] = new SelectList(_context.Cohorts, "CohortID", "CohortName");
         ViewData["RoleID"] = new SelectList(_context.Roles, "RoleID", "RoleName");
             return Page();
         }
 
         [BindProperty]
-        public User Users { get; set; }
+        new public User User { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -35,7 +35,8 @@ namespace UserPortal.Pages.Users
                 return Page();
             }
 
-            _context.Users.Add(Users);
+            User.Password = Hash.HashPW(User.Password);
+            _context.Users.Add(User);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
