@@ -34,7 +34,7 @@ namespace UserPortal
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<SpartaDB>(options => options.UseSqlServer(@"Server=tcp:spartaportal.database.windows.net,1433;Initial Catalog=SpartaDB;Persist Security Info=False;User ID={portaladmin};Password={Sparta2019};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
+            services.AddDbContext<SpartaDB>(options => options.UseSqlServer(@"Server=tcp:spartaportal.database.windows.net,1433;Initial Catalog=SpartaDB;Persist Security Info=False;User ID=portaladmin;Password=Sparta2019;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -52,6 +52,7 @@ namespace UserPortal
                 // app.UseHsts();
             // }
 			
+            // TODO: remove following line and uncomment above code
 			app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
