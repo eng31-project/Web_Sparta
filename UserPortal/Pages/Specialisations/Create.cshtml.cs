@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using UserPortal.Models;
 
-namespace UserPortal.Pages
+namespace UserPortal.Pages.Specialisations
 {
-    public class CreateRoleModel : PageModel
+    public class CreateModel : PageModel
     {
         private readonly UserPortal.Models.SpartaDB _context;
 
-        public CreateRoleModel(UserPortal.Models.SpartaDB context)
+        public CreateModel(UserPortal.Models.SpartaDB context)
         {
             _context = context;
         }
@@ -24,7 +24,7 @@ namespace UserPortal.Pages
         }
 
         [BindProperty]
-        public Role Role { get; set; }
+        public Specialisation Specialisation { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -33,7 +33,7 @@ namespace UserPortal.Pages
                 return Page();
             }
 
-            _context.Role.Add(Role);
+            _context.Specialisation.Add(Specialisation);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
