@@ -12,7 +12,7 @@ namespace UserPortal.Pages.Cohorts
     public class DetailsModel : PageModel
     {
         private readonly UserPortal.Models.SpartaDB _context;
-        public IList<User> User { get; set; }
+        public IList<User> UserL { get; set; }
         public DetailsModel(UserPortal.Models.SpartaDB context)
         {
             _context = context;
@@ -21,17 +21,19 @@ namespace UserPortal.Pages.Cohorts
         public Cohort Cohort { get; set; }
         public User Users { get; set; }
 
+        
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
+            UserL = await _context.Users
+                .Include(u => u.Role).Where(m => m.CohortID == id).ToListAsync();
+
 
             Cohort = await _context.Cohorts
                 .Include(c => c.Specialisation).FirstOrDefaultAsync(m => m.CohortID == id);
-            //Users = await _context.Users
-            //   .Include(c => c.CohortID).FirstOrDefaultAsync(m => m.CohortID == id);
 
 
             if (Cohort == null)
@@ -39,6 +41,7 @@ namespace UserPortal.Pages.Cohorts
                 return NotFound();
             }
             return Page();
-        }
+        } 
+
     }
 }

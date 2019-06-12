@@ -14,8 +14,7 @@ namespace UserPortal.Models
         [StringLength(50)]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "Field can't be empty")]
-        [RegularExpression(@"^([\w\.\-]+)@([spartaglobal]+)((\.(com))+)$")]
+        [Required(ErrorMessage = "Field can't be empty"), RegularExpression(@"^([\w\.\-]+)@([spartaglobal]+)((\.(com))+)$")]
         [StringLength(50)]
         public string Email { get; set; }
 

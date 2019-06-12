@@ -17,7 +17,7 @@ namespace UserPortal.Pages.Cohorts
         {
             _context = context;
         }
-
+        public IList<User> UserL { get; set; }
         [BindProperty]
         public Cohort Cohort { get; set; }
 
@@ -46,11 +46,20 @@ namespace UserPortal.Pages.Cohorts
             }
 
             Cohort = await _context.Cohorts.FindAsync(id);
+            UserL = await _context.Users
+                .Include(u => u.Role).Where(m => m.CohortID == id).ToListAsync();
 
             if (Cohort != null)
             {
-                _context.Cohorts.Remove(Cohort);
-                await _context.SaveChangesAsync();
+                if (UserL == null)
+                {
+                    _context.Cohorts.Remove(Cohort);
+                    await _context.SaveChangesAsync();
+                }
+                else if (UserL != null)
+                {
+                    return RedirectToPage("./Index"); ;
+                }
             }
 
             return RedirectToPage("./Index");
