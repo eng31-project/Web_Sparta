@@ -28,5 +28,5 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish SQL Artifacts'
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)/DB' 
+    pathtoPublish: '$(Build.SourcesDirectory)/DB' 
     artifactName: 'SQL Script' 
