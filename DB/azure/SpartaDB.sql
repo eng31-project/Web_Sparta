@@ -1,11 +1,3 @@
-drop database IF EXISTS SpartaDB
-go
-
-create database SpartaDB
-go
-
-use SpartaDB
-go
 
 CREATE TABLE Roles(
 	RoleID INT NOT NULL IDENTITY PRIMARY KEY,
