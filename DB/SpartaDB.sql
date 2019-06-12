@@ -46,7 +46,6 @@ SET IDENTITY_INSERT Cohorts ON
 INSERT INTO Cohorts(CohortID,CohortName, SpecialisationID  ) VALUES (1,'Engineering-31',1),(2, 'Engineering-32',3),(3, 'Data-2',2) 
 SET IDENTITY_INSERT Cohorts OFF
 
-
 SET IDENTITY_INSERT Users  ON
 INSERT INTO Users (UserID ,FirstName, LastName, Email, Password, CohortID, RoleID ) VALUES 
 (1, 'Jaspreet', 'Rai', 'Jrai@spartaglobal.com', 'Password',2,3),

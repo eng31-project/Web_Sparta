@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.EntityFrameworkCore;
+
+
 namespace UserPortal.Models
 {
     public class SpartaDB : DbContext
@@ -6,7 +9,7 @@ namespace UserPortal.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Cohort> Cohorts { get; set; }
-        public DbSet<Specialisation> Specialisations { get; set; }
+        public DbSet<Specialisation> Specialisations { get; set; } 
 
         public SpartaDB() { }
 
