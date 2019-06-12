@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using UserPortal.Models;
 
-namespace UserPortal.Pages
+namespace UserPortal.Pages.Roles
 {
-    public class CreateRoleModel : PageModel
+    public class CreateModel : PageModel
     {
         private readonly UserPortal.Models.SpartaDB _context;
 
-        public CreateRoleModel(UserPortal.Models.SpartaDB context)
+        public CreateModel(UserPortal.Models.SpartaDB context)
         {
             _context = context;
         }

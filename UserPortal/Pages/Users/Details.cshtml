@@ -1,0 +1,49 @@
+﻿@page
+@model UserPortal.Pages.Users.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+<hr />
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.User.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Cohort)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.Cohort.CohortName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Role)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.Role.RoleName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.User.UserID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

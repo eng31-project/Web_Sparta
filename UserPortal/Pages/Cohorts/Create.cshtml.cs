@@ -7,24 +7,25 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using UserPortal.Models;
 
-namespace UserPortal.Pages
+namespace UserPortal.Pages.Cohorts
 {
-    public class CreateRoleModel : PageModel
+    public class CreateModel : PageModel
     {
         private readonly UserPortal.Models.SpartaDB _context;
 
-        public CreateRoleModel(UserPortal.Models.SpartaDB context)
+        public CreateModel(UserPortal.Models.SpartaDB context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
+        ViewData["SpecialisationID"] = new SelectList(_context.Specialisations, "SpecialisationID", "SpecialisationName");
             return Page();
         }
 
         [BindProperty]
-        public Role Role { get; set; }
+        public Cohort Cohort { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -33,7 +34,7 @@ namespace UserPortal.Pages
                 return Page();
             }
 
-            _context.Roles.Add(Role);
+            _context.Cohorts.Add(Cohort);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

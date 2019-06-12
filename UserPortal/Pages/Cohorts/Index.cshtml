@@ -1,0 +1,42 @@
+﻿@page
+@model UserPortal.Pages.Cohorts.IndexModel
+
+@{
+    ViewData["Title"] = "Cohorts";
+}
+
+<h2>Cohorts</h2>
+<hr />
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cohort[0].CohortName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cohort[0].Specialisation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Cohort) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CohortName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialisation.SpecialisationName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CohortID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CohortID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CohortID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
