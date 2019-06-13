@@ -1,0 +1,48 @@
+﻿@page
+@model UserPortal.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+<hr />
+<p>@Model.test</p>
+
+<style>
+    .block {
+        padding-left: 25%;
+    }
+
+    div.blockmain {
+        display: flex;
+        width: 70%;
+        justify-content: center;
+        padding: 3vh 5vw;
+        margin-left: 13vw;
+        padding-top: 10vh;
+    }
+</style>
+
+<div class="blockmain">
+
+    <form method="POST">
+        <div asp-validation-summary="None" class="text-danger">
+            <div class="form-group">
+                <label asp-for="Input.Email">Email</label>
+                <input asp-for="Input.Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Password">Password</label>
+                <input asp-for="Input.Password" class="form-control" />
+            </div>
+
+            <div class="block">
+                <button type="submit" class="btn btn-primary btn-lg">Login</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+

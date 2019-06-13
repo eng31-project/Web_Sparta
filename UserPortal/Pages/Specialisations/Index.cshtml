@@ -1,0 +1,36 @@
+﻿@page
+@model UserPortal.Pages.Specialisations.IndexModel
+
+@{
+    ViewData["Title"] = "Specialisations";
+}
+
+ <h2>Specialisations</h2>
+ <hr />
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Specialisation[0].SpecialisationName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Specialisation) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecialisationName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.SpecialisationID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.SpecialisationID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.SpecialisationID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
