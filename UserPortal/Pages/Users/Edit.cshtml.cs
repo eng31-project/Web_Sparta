@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -44,8 +45,12 @@ namespace UserPortal.Pages.Users
 
         public async Task<IActionResult> OnPostAsync()
         {
+            if (HttpContext.Session.GetString("Test") != "1")
+                return RedirectToPage("/Login");
             if (!ModelState.IsValid)
             {
+                ViewData["CohortID"] = new SelectList(_context.Cohorts, "CohortID", "CohortID");
+                ViewData["RoleID"] = new SelectList(_context.Roles, "RoleID", "RoleName");
                 return Page();
             }
 

@@ -1,25 +1,25 @@
+DROP TABLE IF EXISTS Users
+DROP TABLE IF EXISTS Cohorts
+DROP TABLE IF EXISTS Roles
+DROP TABLE IF EXISTS Specialisations
 
-IF NOT EXISTS ( 
-CREATE TABLE Roles
+CREATE TABLE Roles (
 RoleID INT NOT NULL IDENTITY PRIMARY KEY,
-RoleName NVARCHAR(50) NOT NULL)
+RoleName NVARCHAR(50) NOT NULL )
 GO
 
-IF NOT EXISTS (
-CREATE TABLE Specialisations
+CREATE TABLE Specialisations (
 SpecialisationID INT NOT NULL IDENTITY PRIMARY KEY,
-SpecialisationName NVARCHAR(50) NOT NULL)
+SpecialisationName NVARCHAR(50) NOT NULL )
 GO
 
-IF NOT EXISTS (
-CREATE TABLE Cohorts
+CREATE TABLE Cohorts (
 CohortID INT NOT NULL IDENTITY PRIMARY KEY,
 CohortName NVARCHAR(50) NOT NULL,
 SpecialisationID INT NULL FOREIGN KEY REFERENCES Specialisations(SpecialisationID))
 GO
 
-IF NOT EXISTS (
-CREATE TABLE Users
+CREATE TABLE Users (
 UserID INT NOT NULL IDENTITY PRIMARY KEY,
 FirstName NVARCHAR(50) NOT NULL,
 LastName NVARCHAR(50) NOT NULL,
@@ -41,14 +41,12 @@ SET IDENTITY_INSERT Cohorts ON
 INSERT INTO Cohorts(CohortID,CohortName, SpecialisationID  ) VALUES (1,'Engineering-31',1),(2, 'Engineering-32',3),(3, 'Data-2',2)
 SET IDENTITY_INSERT Cohorts OFF
 
-
 SET IDENTITY_INSERT Users  ON
-IF NOT EXISTS ( 
 INSERT INTO Users (UserID ,FirstName, LastName, Email, Password, CohortID, RoleID ) VALUES
 (1, 'Jaspreet', 'Rai', 'Jrai@spartaglobal.com', 'Password',2,3),
 (2, 'Phil', 'Anderson', 'Phil@spartaglobal.com', 'thisshouldbehashed',1,2),
 (3, 'Li', 'Dinh', 'Ldinh@spartaglobal.com', 'Password',2,3),
 (4, 'Luitzen', 'H', 'LH@spartaglobal.com', 'Password',2,3),
-(5, 'Seb', 'T', 'ST@spartaglobal.com', 'Password',2,3))
+(5, 'Seb', 'T', 'ST@spartaglobal.com', 'Password',2,3)
 GO
 SET IDENTITY_INSERT Users OFF
