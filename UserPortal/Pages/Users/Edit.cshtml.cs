@@ -46,6 +46,8 @@ namespace UserPortal.Pages.Users
         {
             if (!ModelState.IsValid)
             {
+                ViewData["CohortID"] = new SelectList(_context.Cohorts, "CohortID", "CohortID");
+                ViewData["RoleID"] = new SelectList(_context.Roles, "RoleID", "RoleName");
                 return Page();
             }
 
