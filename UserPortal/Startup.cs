@@ -38,13 +38,16 @@ namespace UserPortal
             // Use SQL Database if in Azure, otherwise, use SQLite
             if (true)
                 services.AddDbContext<SpartaDB>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("SpartaDBAzure"))
                     options.UseSqlServer(Configuration.GetConnectionString("SpartaDBAzure2")));
             else
                 services.AddDbContext<SpartaDB>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("SpartaDBLocal")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().AddRazorPagesOptions(options =>
+            {
+                options.Conventions.AddPageRoute("/Login", "");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

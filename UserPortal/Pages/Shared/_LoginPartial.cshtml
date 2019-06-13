@@ -14,7 +14,10 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="" asp-page="/Users/Create">Register</a></li>
-        <li><a asp-area="" asp-page="/Login">Login</a></li>
+        <li><a asp-area="" asp-action="/Users/Create">Register</a></li>
+        @if (Url.ActionContext.HttpContext.Request.Path != "/")
+        {
+            <li><a asp-area="" asp-action="/Login">Logout</a></li>
+        }
     </ul>
 }
