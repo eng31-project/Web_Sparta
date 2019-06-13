@@ -1,2 +1,1 @@
-# Web_Sparta  
-Test
+# The Sparta Global User Portal Project
