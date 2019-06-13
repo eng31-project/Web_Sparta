@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -21,12 +20,9 @@ namespace UserPortal.Pages.Roles
 
         public IList<Role> Role { get;set; }
 
-        public async Task<IActionResult> OnGetAsync()
+        public async Task OnGetAsync()
         {
-            if (HttpContext.Session.GetString("Test") != "1")
-                return RedirectToPage("/Login");
             Role = await _context.Roles.ToListAsync();
-            return Page();
         }
     }
 }
