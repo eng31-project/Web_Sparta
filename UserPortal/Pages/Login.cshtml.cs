@@ -41,14 +41,14 @@ namespace UserPortal.Pages
             {
                 return Page();
             }
-            
+
             if (!Hash.ValidateHash(Input.Password, users[0].Password))
             {
                 return Page();
             }
 
             HttpContext.Session.SetString("Test", "1");
-            return RedirectToPage("/Users/Index");
+            return RedirectToPage("/Contact");
         }
 
         public class InputModel
