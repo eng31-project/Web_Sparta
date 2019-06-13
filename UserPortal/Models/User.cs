@@ -18,7 +18,8 @@ namespace UserPortal.Models
         [StringLength(50)]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Field can't be empty"),
+              RegularExpression(@"^(?-i)(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))(?=(.*\d){1,})^.*$")]
         public string Password { get; set; }
 
         public int CohortID { get; set; }

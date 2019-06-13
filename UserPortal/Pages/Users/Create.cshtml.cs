@@ -32,9 +32,9 @@ namespace UserPortal.Pages.Users
         {
             if (!ModelState.IsValid)
             {
+                OnGet();
                 return Page();
             }
-
             User.Password = Hash.HashPW(User.Password);
             _context.Users.Add(User);
             await _context.SaveChangesAsync();
