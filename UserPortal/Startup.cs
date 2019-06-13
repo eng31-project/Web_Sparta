@@ -38,7 +38,7 @@ namespace UserPortal
             // Use SQL Database if in Azure, otherwise, use SQLite
             if (true)
                 services.AddDbContext<SpartaDB>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("SpartaDBAzure"))
+                    options.UseSqlServer(Configuration.GetConnectionString("SpartaDBAzure"));
                     options.UseSqlServer(Configuration.GetConnectionString("SpartaDBAzure2")));
             else
                 services.AddDbContext<SpartaDB>(options =>
