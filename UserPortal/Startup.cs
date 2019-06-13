@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Web;
 using UserPortal.Models;
 
@@ -12,7 +13,7 @@ namespace UserPortal
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment environment)
         {
             Configuration = configuration;
         }
@@ -34,7 +35,13 @@ namespace UserPortal
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<SpartaDB>(options => options.UseSqlServer(@"Server=tcp:spartaportal.database.windows.net,1433;Initial Catalog=SpartaDB;Persist Security Info=False;User ID=portaladmin;Password=Sparta2019;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
+            // Use SQL Database if in Azure, otherwise, use SQLite
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+                services.AddDbContext<SpartaDB>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SpartaDBAzure")));
+            else
+                services.AddDbContext<SpartaDB>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SpartaDBLocal")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -42,18 +49,18 @@ namespace UserPortal
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            // if (env.IsDevelopment())
-            // {
-                // app.UseDeveloperExceptionPage();
-            // }
-            // else
-            // {
-                // app.UseExceptionHandler("/Error");
-                // app.UseHsts();
-            // }
-			
-            // TODO: remove following line and uncomment above code
-			app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseHsts();
+            }
+
+            // TODO: remove following line
+            app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
