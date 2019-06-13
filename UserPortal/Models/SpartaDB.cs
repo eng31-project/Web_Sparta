@@ -12,13 +12,6 @@ namespace UserPortal.Models
 
         public SpartaDB(DbContextOptions options) : base(options) { }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            System.Diagnostics.Debug.WriteLine($">>>> {System.Environment.CurrentDirectory}");
-            string path = System.IO.Path.Combine(System.Environment.CurrentDirectory, "SpartaDB.db");
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;" + "Initial Catalog=SpartaDB;" + "Integrated Security=true;" + "MultipleActiveResultSets=true;");
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
