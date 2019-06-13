@@ -1,3 +1,8 @@
+DROP TABLE IF EXISTS Users
+DROP TABLE IF EXISTS Cohorts
+DROP TABLE IF EXISTS Roles
+DROP TABLE IF EXISTS Specialisations
+
 CREATE TABLE Roles (
 RoleID INT NOT NULL IDENTITY PRIMARY KEY,
 RoleName NVARCHAR(50) NOT NULL )
@@ -35,7 +40,6 @@ SET IDENTITY_INSERT Specialisations OFF
 SET IDENTITY_INSERT Cohorts ON
 INSERT INTO Cohorts(CohortID,CohortName, SpecialisationID  ) VALUES (1,'Engineering-31',1),(2, 'Engineering-32',3),(3, 'Data-2',2)
 SET IDENTITY_INSERT Cohorts OFF
-
 
 SET IDENTITY_INSERT Users  ON
 INSERT INTO Users (UserID ,FirstName, LastName, Email, Password, CohortID, RoleID ) VALUES
