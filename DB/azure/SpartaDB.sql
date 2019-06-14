@@ -47,6 +47,7 @@ INSERT INTO Users (UserID ,FirstName, LastName, Email, Password, CohortID, RoleI
 (2, 'Phil', 'Anderson', 'Phil@spartaglobal.com', 'thisshouldbehashed',1,2),
 (3, 'Li', 'Dinh', 'Ldinh@spartaglobal.com', 'Password',2,3),
 (4, 'Luitzen', 'H', 'LH@spartaglobal.com', 'Password',2,3),
-(5, 'Seb', 'T', 'ST@spartaglobal.com', 'Password',2,3)
+(5, 'Seb', 'T', 'ST@spartaglobal.com', 'Password',2,3),
+(6, 'A', 'Dmin', 'ADmin@spartaglobal.com' 'qHsVHMzwFUpp41tgr4MTZEOSxcBVpLTXHmJFslwFTx6G4GbC', 1, 1)
 GO
 SET IDENTITY_INSERT Users OFF
