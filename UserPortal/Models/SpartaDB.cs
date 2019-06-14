@@ -15,7 +15,7 @@ namespace UserPortal.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string path = System.IO.Path.Combine(System.Environment.CurrentDirectory, "SpartaDB.db");
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;" + "Initial Catalog=SpartaDB;" + "Integrated Security=true;" + "MultipleActiveResultSets=true;");
+            optionsBuilder.UseSqlServer("Server=tcp:spartaportal.database.windows.net,1433;Initial Catalog=SpartaDB;Persist Security Info=False;User ID=portaladmin;Password=Sparta2019;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
