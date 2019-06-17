@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "servers_spartadb2_name": {
+            "value": null
+        },
+        "sites_spartaportal_name": {
+            "value": null
+        },
+        "servers_spartaportal_name": {
+            "value": null
+        },
+        "serverfarms_ASP_spartastudentportal_bcdb_name": {
+            "value": null
+        },
+        "components_AI_spartastudentportal_82e3_name": {
+            "value": null
+        },
+        "alertrules_Failure_Anomalies___AI_spartastudentportal_82e3_name": {
+            "value": null
+        }
+    }
+}

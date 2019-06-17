@@ -31,3 +31,9 @@ steps:
   inputs:
     pathtoPublish: '$(Build.SourcesDirectory)/DB/azure'
     artifactName: 'SQL Script'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish ARM Artifacts'
+  inputs:
+    pathtoPublish: '$(Build.SourcesDirectory)/arm-templates'
+    artifactName: 'ARM Templates'
