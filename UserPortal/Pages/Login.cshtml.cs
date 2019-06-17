@@ -41,15 +41,15 @@ namespace UserPortal.Pages
 
             if (users.Count != 1)
             {
-                return Page();
+              return Page();
             }
 
             if (!Hash.ValidateHash(Input.Password, users[0].Password))
             {
-              HttpContext.Session.SetString("Test", "1");
-              return RedirectToPage("/Users/Index");
+              return Page();
             }
-            return Page();
+            HttpContext.Session.SetString("Test", "1");
+            return RedirectToPage("/Users/Index");
         }
 
         public class InputModel
