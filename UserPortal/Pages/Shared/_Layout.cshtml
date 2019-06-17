@@ -17,10 +17,9 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-light navbar-fixed-top">
       <a class="navbar-brand" asp-page="/Index">
-        <img src="https://media.licdn.com/dms/image/C560BAQHGBikARgsz5A/company-logo_200_200/0?e=2159024400&v=beta&t=ooHEmQP3Cswkus82FU4hMSwZJU-1z1nD-J2j4lMe5zI" width="30" height="30" alt="">
-        User Portal
+        <img src="https://media.licdn.com/dms/image/C560BAQHGBikARgsz5A/company-logo_200_200/0?e=2159024400&v=beta&t=ooHEmQP3Cswkus82FU4hMSwZJU-1z1nD-J2j4lMe5zI" width="40" height="40" alt=""> User Portal
       </a>
         <div class="container">
             <div class="navbar-header">
@@ -34,10 +33,10 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-page="/Users/Index">Users</a></li>
-                    <li><a asp-page="/Cohorts/Index">Cohort</a></li>
                     <li><a asp-page="/Roles/Index">Role</a></li>
-                    <li><a asp-page="/Contact">Contact</a></li>
+                    <li><a asp-page="/Cohorts/Index">Cohort</a></li>
                     <li><a asp-page="/Specialisations/Index">Specialisation</a></li>
+                    <li><a asp-page="/Contact">Contact</a></li>
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
@@ -50,7 +49,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; Engineering 31/32 - SpartaUserPortal Project</p>
+            <p>&copy; Engineering 31/32 - Sparta UserPortal Project</p>
         </footer>
     </div>
 
