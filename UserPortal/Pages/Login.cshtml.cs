@@ -37,6 +37,8 @@ namespace UserPortal.Pages
 
             users = db.Users.Where(u => u.Email == Input.Email).ToList();
 
+            HttpContext.Session.SetString("Test", "0");
+
             if (users.Count != 1)
             {
                 return Page();
@@ -44,11 +46,9 @@ namespace UserPortal.Pages
 
             if (!Hash.ValidateHash(Input.Password, users[0].Password))
             {
-                return Page();
+              HttpContext.Session.SetString("Test", "1");
+              return RedirectToPage("/Users/Index");
             }
-
-            HttpContext.Session.SetString("Test", "1");
-            return RedirectToPage("/Users/Index");
         }
 
         public class InputModel
