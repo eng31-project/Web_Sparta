@@ -2,23 +2,29 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "servers_spartadb2_name": {
-            "value": null
-        },
-        "sites_spartaportal_name": {
-            "value": null
-        },
-        "servers_spartaportal_name": {
-            "value": null
-        },
-        "serverfarms_ASP_spartastudentportal_ab7b_name": {
-            "value": null
-        },
-        "components_AI_spartastudentportal_a399_name": {
-            "value": null
-        },
-        "alertrules_Failure_Anomalies___AI_spartastudentportal_a399_name": {
-            "value": null
-        }
-    }
+         "servers_spartadb2_name": {
+             "defaultValue": "spartadb2",
+             "type": "String"
+         },
+         "sites_spartaportal_name": {
+             "defaultValue": "spartaportal",
+             "type": "String"
+         },
+         "servers_spartaportal_name": {
+             "defaultValue": "spartaportal",
+             "type": "String"
+         },
+         "serverfarms_ASP_spartastudentportal_ab7b_name": {
+             "defaultValue": "ASP-spartastudentportal-ab7b",
+             "type": "String"
+         },
+         "components_AI_spartastudentportal_a399_name": {
+             "defaultValue": "AI-spartastudentportal-a399",
+             "type": "String"
+         },
+         "alertrules_Failure_Anomalies___AI_spartastudentportal_a399_name": {
+             "defaultValue": "Failure Anomalies - AI-spartastudentportal-a399",
+             "type": "String"
+           }
+      }
 }
