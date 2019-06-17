@@ -14,16 +14,16 @@
             "defaultValue": "spartaportal",
             "type": "String"
         },
-        "serverfarms_ASP_spartastudentportal_bcdb_name": {
-            "defaultValue": "ASP-spartastudentportal-bcdb",
+        "serverfarms_ASP_spartastudentportal_ab7b_name": {
+            "defaultValue": "ASP-spartastudentportal-ab7b",
             "type": "String"
         },
-        "components_AI_spartastudentportal_82e3_name": {
-            "defaultValue": "AI-spartastudentportal-82e3",
+        "components_AI_spartastudentportal_a399_name": {
+            "defaultValue": "AI-spartastudentportal-a399",
             "type": "String"
         },
-        "alertrules_Failure_Anomalies___AI_spartastudentportal_82e3_name": {
-            "defaultValue": "Failure Anomalies - AI-spartastudentportal-82e3",
+        "alertrules_Failure_Anomalies___AI_spartastudentportal_a399_name": {
+            "defaultValue": "Failure Anomalies - AI-spartastudentportal-a399",
             "type": "String"
         }
     },
@@ -32,7 +32,7 @@
         {
             "type": "microsoft.insights/components",
             "apiVersion": "2015-05-01",
-            "name": "[parameters('components_AI_spartastudentportal_82e3_name')]",
+            "name": "[parameters('components_AI_spartastudentportal_a399_name')]",
             "location": "uksouth",
             "kind": "web",
             "properties": {
@@ -65,7 +65,7 @@
         {
             "type": "Microsoft.Web/serverfarms",
             "apiVersion": "2016-09-01",
-            "name": "[parameters('serverfarms_ASP_spartastudentportal_bcdb_name')]",
+            "name": "[parameters('serverfarms_ASP_spartastudentportal_ab7b_name')]",
             "location": "UK West",
             "tags": {
                 "Name": "spartaportal"
@@ -79,7 +79,7 @@
             },
             "kind": "app",
             "properties": {
-                "name": "[parameters('serverfarms_ASP_spartastudentportal_bcdb_name')]",
+                "name": "[parameters('serverfarms_ASP_spartastudentportal_ab7b_name')]",
                 "perSiteScaling": false,
                 "reserved": false,
                 "targetWorkerCount": 0,
@@ -89,22 +89,22 @@
         {
             "type": "microsoft.insights/alertrules",
             "apiVersion": "2014-04-01",
-            "name": "[parameters('alertrules_Failure_Anomalies___AI_spartastudentportal_82e3_name')]",
+            "name": "[parameters('alertrules_Failure_Anomalies___AI_spartastudentportal_a399_name')]",
             "location": "UK South",
             "dependsOn": [
-                "[resourceId('microsoft.insights/components', parameters('components_AI_spartastudentportal_82e3_name'))]"
+                "[resourceId('microsoft.insights/components', parameters('components_AI_spartastudentportal_a399_name'))]"
             ],
             "tags": {
-                "hidden-link:/subscriptions/247010fa-fbec-460e-9d21-16f99462c952/resourceGroups/spartastudentportal/providers/microsoft.insights/components/AI-spartastudentportal-82e3": "Resource"
+                "hidden-link:/subscriptions/247010fa-fbec-460e-9d21-16f99462c952/resourceGroups/spartastudentportal/providers/microsoft.insights/components/AI-spartastudentportal-a399": "Resource"
             },
             "properties": {
-                "name": "[parameters('alertrules_Failure_Anomalies___AI_spartastudentportal_82e3_name')]",
+                "name": "[parameters('alertrules_Failure_Anomalies___AI_spartastudentportal_a399_name')]",
                 "isEnabled": true,
                 "condition": {
                     "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
                     "dataSource": {
                         "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-                        "resourceUri": "[resourceId('microsoft.insights/components', parameters('components_AI_spartastudentportal_82e3_name'))]",
+                        "resourceUri": "[resourceId('microsoft.insights/components', parameters('components_AI_spartastudentportal_a399_name'))]",
                         "metricName": "advanced::A3108E3D-5E26-44CF-B232-783F5E20EF10::ewAiAEgAeQBwAGUAcgBpAG8AbgBBAHAAcABsAGkAYwBhAHQAaQBvAG4AUwBpAGQAIgA6AG4AdQBsAGwALAAiAEgAeQBwAGUAcgBpAG8AbgBTAHUAYgBqAGUAYwB0AFMAaQBkACIAOgBuAHUAbABsACwAIgBIAHkAcABlAHIAaQBvAG4ATwBiAHMAZQByAHYAZQByAFMAaQBkACIAOgBuAHUAbABsACwAIgBDAHUAcwB0AG8AbQBlAHIAQQBjAGMAbwB1AG4AdABJAGQAIgA6ACIAMAAwADAAMAAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAwADAAMAAwADAAMAAwADAAIgAsACIAQQBwAHAAbABpAGMAYQB0AGkAbwBuAE4AYQBtAGUAIgA6AG4AdQBsAGwALAAiAEEAcABwAGwAaQBjAGEAdABpAG8AbgBJAGQAIgA6AG4AdQBsAGwALAAiAFAAcgBvAGYAaQBsAGUASQBkACIAOgAwACwAIgBXAGkAbgBkAG8AdwBTAGkAegBlAEkAbgBNAGkAbgB1AHQAZQBzACIAOgA2ADAALAAiAE0AZQB0AHIAaQBjAE4AYQBtAGUAIgA6ACIAIgAsACIAVABoAHIAZQBzAGgAbwBsAGQAIgA6ADIALgAwACwAIgBBAGwAZQByAHQAVABlAG0AcABsAGEAdABlAEkAZAAiADoAIgAiACwAIgBSAHUAbABlAEkAZAAiADoAIgAiACwAIgBSAHUAbABlAE4AYQBtAGUAIgA6ACIAIgAsACIAUgB1AGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AIgA6ACIAIgAsACIAUgBlAHMAbwB1AHIAYwBlAEkAZAAiADoAbgB1AGwAbAAsACIAUwB1AGIAcwBjAHIAaQBwAHQAaQBvAG4ASQBkACIAOgBuAHUAbABsACwAIgBBAGcAZwByAGUAZwBhAHQAZQBGAHUAbgBjAHQAaQBvAG4AIgA6ACIAIgAsACIAQwBvAG0AcABhAHIAaQBzAG8AbgBPAHAAZQByAGEAdABvAHIAIgA6ACIAewBcACIAQgBhAHMAZQBsAGkAbgBlAFQAaQBtAGUAcwBwAGEAbgBcACIAOgBcACIAMAAwADoANAAwADoAMAAwAFwAIgAsAFwAIgBJAG4AcwBpAGcAaAB0AHMAUwBlAHIAdgBpAGMAZQBMAGEAZwBcACIAOgBcACIAMAAwADoAMAAwADoAMAAwAFwAIgAsAFwAIgBCAHUAZgBmAGUAcgBUAGkAbQBlAFwAIgA6AFwAIgAwADAAOgAwADEAOgAwADAAXAAiACwAXAAiAEIAbABvAGIAUwB0AG8AcgBhAGcAZQBMAG8AZwBnAGkAbgBnAEUAbgBhAGIAbABlAGQAXAAiADoAZgBhAGwAcwBlACwAXAAiAFUAcwBlAHIAUwB1AHAAcAByAGUAcwBzAGkAbwBuAHMAXAAiADoAbgB1AGwAbAAsAFwAIgBQAHIAbwBmAGkAbABlAEkAZABcACIAOgAwACwAXAAiAEUAbQBhAGkAbABUAHkAcABlAFwAIgA6ADAALABcACIAUgBkAGQARgBhAGkAbAB1AHIAZQBzAFMAcABpAGsAZQBUAGgAcgBlAHMAaABvAGwAZABcACIAOgAzAC4AMAAsAFwAIgBSAGEAdwBQAHIAbwBhAGMAdABpAHYAZQBSAHUAbABlAEMAbwBuAGYAaQBnAFwAIgA6AG4AdQBsAGwAfQAiACwAIgBFAG4AYQBiAGwAZQBTAGUAbgBkAEUAbQBhAGkAbABUAG8AQwB1AHMAdABvAG0AIgA6AGYAYQBsAHMAZQAsACIAQwB1AHMAdABvAG0ARQBtAGEAaQBsAHMARQBuAGMAbwBkAGUAZAAiADoAIgAiACwAIgBFAG4AYQBiAGwAZQBTAGUAbgBkAEUAbQBhAGkAbABUAG8ATwB3AG4AZQByAHMAIgA6AGYAYQBsAHMAZQB9AA=="
                     },
                     "operator": "GreaterThan",
@@ -255,7 +255,7 @@
         {
             "type": "Microsoft.Sql/servers/databases",
             "apiVersion": "2017-03-01-preview",
-            "name": "[concat(parameters('servers_spartadb2_name'), '/SpartaDB')]",
+            "name": "[concat(parameters('servers_spartadb2_name'), '/spartadb')]",
             "location": "eastus",
             "dependsOn": [
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartadb2_name'))]"
@@ -275,13 +275,13 @@
         {
             "type": "Microsoft.Sql/servers/databases",
             "apiVersion": "2017-03-01-preview",
-            "name": "[concat(parameters('servers_spartaportal_name'), '/SpartaDB')]",
+            "name": "[concat(parameters('servers_spartaportal_name'), '/spartadb')]",
             "location": "australiaeast",
             "dependsOn": [
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartaportal_name'))]"
             ],
             "tags": {
-                "Name": "SpartaDB"
+                "Name": "spartadb"
             },
             "sku": {
                 "name": "Basic",
@@ -484,18 +484,6 @@
             }
         },
         {
-            "type": "Microsoft.Sql/servers/firewallRules",
-            "apiVersion": "2015-05-01-preview",
-            "name": "[concat(parameters('servers_spartaportal_name'), '/ClientIPAddress_2019-6-12_14-22-33')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_spartaportal_name'))]"
-            ],
-            "properties": {
-                "startIpAddress": "212.161.55.68",
-                "endIpAddress": "212.161.55.68"
-            }
-        },
-        {
             "type": "Microsoft.Sql/servers/keys",
             "apiVersion": "2015-05-01-preview",
             "name": "[concat(parameters('servers_spartadb2_name'), '/ServiceManaged')]",
@@ -546,14 +534,14 @@
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartaportal_name'))]"
             ],
             "properties": {
-                "state": "Enabled",
+                "state": "Disabled",
                 "disabledAlerts": [
                     ""
                 ],
                 "emailAddresses": [
                     ""
                 ],
-                "emailAccountAdmins": true,
+                "emailAccountAdmins": false,
                 "retentionDays": 0
             }
         },
@@ -579,11 +567,9 @@
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartaportal_name'))]"
             ],
             "properties": {
-                "storageContainerPath": "https://sqlvafy5l6vizfiydu.blob.core.windows.net/vulnerability-assessment/",
                 "recurringScans": {
-                    "isEnabled": true,
-                    "emailSubscriptionAdmins": true,
-                    "emails": []
+                    "isEnabled": false,
+                    "emailSubscriptionAdmins": true
                 }
             }
         },
@@ -593,7 +579,7 @@
             "name": "[parameters('sites_spartaportal_name')]",
             "location": "UK West",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_spartastudentportal_bcdb_name'))]"
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_spartastudentportal_ab7b_name'))]"
             ],
             "tags": {
                 "Name": "spartaportal"
@@ -613,7 +599,7 @@
                         "hostType": "Repository"
                     }
                 ],
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_spartastudentportal_bcdb_name'))]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_spartastudentportal_ab7b_name'))]",
                 "reserved": false,
                 "scmSiteAlsoStopped": false,
                 "clientAffinityEnabled": true,
@@ -721,201 +707,21 @@
         {
             "type": "Microsoft.Web/sites/deployments",
             "apiVersion": "2016-08-01",
-            "name": "[concat(parameters('sites_spartaportal_name'), '/0d05d73b1e9c40cf906294e281aa6cf4')]",
+            "name": "[concat(parameters('sites_spartaportal_name'), '/73f11a2cac9f497d83c41dbd51522fc7')]",
             "location": "UK West",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('sites_spartaportal_name'))]"
             ],
             "properties": {
-                "id": "0d05d73b1e9c40cf906294e281aa6cf4",
+                "id": "73f11a2cac9f497d83c41dbd51522fc7",
                 "status": 4,
                 "author_email": "N/A",
                 "author": "N/A",
                 "deployer": "VSTS",
-                "message": "{\"type\":\"deployment\",\"commitId\":\"6ba3725fea8c49400ff8fd76f091f5d3724a4706\",\"buildId\":\"125\",\"releaseId\":\"52\",\"buildNumber\":\"20190613.40\",\"releaseName\":\"Release-52\",\"repoProvider\":\"GitHub\",\"repoName\":\"KirtMorgan/Web_Sparta\",\"collectionUrl\":\"https://dev.azure.com/kirtmorgan/\",\"teamProject\":\"a41423b4-0162-41f0-9258-bb857889186a\",\"slotName\":\"production\"}",
-                "start_time": "2019-06-13T13:49:46.8216976Z",
-                "end_time": "2019-06-13T13:49:46.9935692Z",
-                "active": false
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/deployments",
-            "apiVersion": "2016-08-01",
-            "name": "[concat(parameters('sites_spartaportal_name'), '/4c60da583be9478eb9bca06535680692')]",
-            "location": "UK West",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_spartaportal_name'))]"
-            ],
-            "properties": {
-                "id": "4c60da583be9478eb9bca06535680692",
-                "status": 4,
-                "author_email": "N/A",
-                "author": "N/A",
-                "deployer": "VSTS",
-                "message": "{\"type\":\"deployment\",\"commitId\":\"d7b60c1fc3f93a5bf506ef1f75d93cf6a5d9c119\",\"buildId\":\"163\",\"releaseId\":\"77\",\"buildNumber\":\"20190614.3\",\"releaseName\":\"Release-9\",\"repoProvider\":\"GitHub\",\"repoName\":\"KirtMorgan/Web_Sparta\",\"collectionUrl\":\"https://dev.azure.com/kirtmorgan/\",\"teamProject\":\"a41423b4-0162-41f0-9258-bb857889186a\",\"slotName\":\"production\"}",
-                "start_time": "2019-06-14T08:16:59.3144394Z",
-                "end_time": "2019-06-14T08:16:59.5019761Z",
+                "message": "{\"type\":\"deployment\",\"commitId\":\"7a605f54e826f696a84f470ccda3e1448b6bc104\",\"buildId\":\"166\",\"releaseId\":\"86\",\"buildNumber\":\"20190617.1\",\"releaseName\":\"Release-17\",\"repoProvider\":\"GitHub\",\"repoName\":\"KirtMorgan/Web_Sparta\",\"collectionUrl\":\"https://dev.azure.com/kirtmorgan/\",\"teamProject\":\"a41423b4-0162-41f0-9258-bb857889186a\",\"slotName\":\"production\"}",
+                "start_time": "2019-06-17T09:30:08.6507666Z",
+                "end_time": "2019-06-17T09:30:08.8226509Z",
                 "active": true
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/deployments",
-            "apiVersion": "2016-08-01",
-            "name": "[concat(parameters('sites_spartaportal_name'), '/52a9c985981c48e48ccf0113a83d15e1')]",
-            "location": "UK West",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_spartaportal_name'))]"
-            ],
-            "properties": {
-                "id": "52a9c985981c48e48ccf0113a83d15e1",
-                "status": 4,
-                "author_email": "N/A",
-                "author": "N/A",
-                "deployer": "VSTS",
-                "message": "{\"type\":\"deployment\",\"commitId\":\"90fc3712a20cd6e840a149c3de3eddb136100a5d\",\"buildId\":\"159\",\"releaseId\":\"72\",\"buildNumber\":\"20190614.1\",\"releaseName\":\"Release-7\",\"repoProvider\":\"GitHub\",\"repoName\":\"KirtMorgan/Web_Sparta\",\"collectionUrl\":\"https://dev.azure.com/kirtmorgan/\",\"teamProject\":\"a41423b4-0162-41f0-9258-bb857889186a\",\"slotName\":\"production\"}",
-                "start_time": "2019-06-14T07:51:45.7709987Z",
-                "end_time": "2019-06-14T07:51:45.9606714Z",
-                "active": false
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/deployments",
-            "apiVersion": "2016-08-01",
-            "name": "[concat(parameters('sites_spartaportal_name'), '/5ee713a6622b4519b65d913cab7ca8a0')]",
-            "location": "UK West",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_spartaportal_name'))]"
-            ],
-            "properties": {
-                "id": "5ee713a6622b4519b65d913cab7ca8a0",
-                "status": 4,
-                "author_email": "N/A",
-                "author": "N/A",
-                "deployer": "VSTS",
-                "message": "{\"type\":\"deployment\",\"commitId\":\"5cad74973a59e314998baee961d2eb834694c715\",\"buildId\":\"151\",\"releaseId\":\"66\",\"buildNumber\":\"20190613.29\",\"releaseName\":\"Release-4\",\"repoProvider\":\"GitHub\",\"repoName\":\"KirtMorgan/Web_Sparta\",\"collectionUrl\":\"https://dev.azure.com/kirtmorgan/\",\"teamProject\":\"a41423b4-0162-41f0-9258-bb857889186a\",\"slotName\":\"production\"}",
-                "start_time": "2019-06-13T14:52:36.9333405Z",
-                "end_time": "2019-06-13T14:52:37.0895397Z",
-                "active": false
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/deployments",
-            "apiVersion": "2016-08-01",
-            "name": "[concat(parameters('sites_spartaportal_name'), '/602fa65aa55e403381685acc1e5848be')]",
-            "location": "UK West",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_spartaportal_name'))]"
-            ],
-            "properties": {
-                "id": "602fa65aa55e403381685acc1e5848be",
-                "status": 4,
-                "author_email": "N/A",
-                "author": "N/A",
-                "deployer": "VSTS",
-                "message": "{\"type\":\"deployment\",\"commitId\":\"217ef2bf27f6b3ce052f8a51501e4aaa96717865\",\"buildId\":\"155\",\"releaseId\":\"68\",\"buildNumber\":\"20190613.31\",\"releaseName\":\"Release-5\",\"repoProvider\":\"GitHub\",\"repoName\":\"KirtMorgan/Web_Sparta\",\"collectionUrl\":\"https://dev.azure.com/kirtmorgan/\",\"teamProject\":\"a41423b4-0162-41f0-9258-bb857889186a\",\"slotName\":\"production\"}",
-                "start_time": "2019-06-13T15:00:45.3365685Z",
-                "end_time": "2019-06-13T15:00:45.4928041Z",
-                "active": false
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/deployments",
-            "apiVersion": "2016-08-01",
-            "name": "[concat(parameters('sites_spartaportal_name'), '/6f36960573d849df844157d1d5d8c559')]",
-            "location": "UK West",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_spartaportal_name'))]"
-            ],
-            "properties": {
-                "id": "6f36960573d849df844157d1d5d8c559",
-                "status": 4,
-                "author_email": "N/A",
-                "author": "N/A",
-                "deployer": "VSTS",
-                "message": "{\"type\":\"deployment\",\"commitId\":\"02a8dbfa6d7d8d6bfb862284c2bbdd17abe15eb0\",\"buildId\":\"138\",\"releaseId\":\"60\",\"buildNumber\":\"20190613.22\",\"releaseName\":\"Release-1\",\"repoProvider\":\"GitHub\",\"repoName\":\"KirtMorgan/Web_Sparta\",\"collectionUrl\":\"https://dev.azure.com/kirtmorgan/\",\"teamProject\":\"a41423b4-0162-41f0-9258-bb857889186a\",\"slotName\":\"production\"}",
-                "start_time": "2019-06-13T14:22:02.2246291Z",
-                "end_time": "2019-06-13T14:22:02.3808751Z",
-                "active": false
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/deployments",
-            "apiVersion": "2016-08-01",
-            "name": "[concat(parameters('sites_spartaportal_name'), '/9e2d28d54a98437fa6622811fa788ce2')]",
-            "location": "UK West",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_spartaportal_name'))]"
-            ],
-            "properties": {
-                "id": "9e2d28d54a98437fa6622811fa788ce2",
-                "status": 4,
-                "author_email": "N/A",
-                "author": "N/A",
-                "deployer": "VSTS",
-                "message": "{\"type\":\"deployment\",\"commitId\":\"0454ac5a8a449e150d170b2581c75d71fd6fb330\",\"buildId\":\"124\",\"releaseId\":\"51\",\"buildNumber\":\"20190613.39\",\"releaseName\":\"Release-51\",\"repoProvider\":\"GitHub\",\"repoName\":\"KirtMorgan/Web_Sparta\",\"collectionUrl\":\"https://dev.azure.com/kirtmorgan/\",\"teamProject\":\"a41423b4-0162-41f0-9258-bb857889186a\",\"slotName\":\"production\"}",
-                "start_time": "2019-06-13T13:38:52.8858157Z",
-                "end_time": "2019-06-13T13:38:53.0577208Z",
-                "active": false
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/deployments",
-            "apiVersion": "2016-08-01",
-            "name": "[concat(parameters('sites_spartaportal_name'), '/b0b72236a0164e0fbf30b62f6c10adc1')]",
-            "location": "UK West",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_spartaportal_name'))]"
-            ],
-            "properties": {
-                "id": "b0b72236a0164e0fbf30b62f6c10adc1",
-                "status": 4,
-                "author_email": "N/A",
-                "author": "N/A",
-                "deployer": "VSTS",
-                "message": "{\"type\":\"deployment\",\"commitId\":\"1abf791e4cac46154f0843f6421759388611328e\",\"buildId\":\"143\",\"releaseId\":\"62\",\"buildNumber\":\"20190613.25\",\"releaseName\":\"Release-2\",\"repoProvider\":\"GitHub\",\"repoName\":\"KirtMorgan/Web_Sparta\",\"collectionUrl\":\"https://dev.azure.com/kirtmorgan/\",\"teamProject\":\"a41423b4-0162-41f0-9258-bb857889186a\",\"slotName\":\"production\"}",
-                "start_time": "2019-06-13T14:30:30.2960869Z",
-                "end_time": "2019-06-13T14:30:30.4523289Z",
-                "active": false
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/deployments",
-            "apiVersion": "2016-08-01",
-            "name": "[concat(parameters('sites_spartaportal_name'), '/c9c6931e131f435baa557607a4b7f43d')]",
-            "location": "UK West",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_spartaportal_name'))]"
-            ],
-            "properties": {
-                "id": "c9c6931e131f435baa557607a4b7f43d",
-                "status": 4,
-                "author_email": "N/A",
-                "author": "N/A",
-                "deployer": "VSTS",
-                "message": "{\"type\":\"deployment\",\"commitId\":\"815fda5c1cc26509198a7f0fd3eedfab9ff58b3e\",\"buildId\":\"149\",\"releaseId\":\"64\",\"buildNumber\":\"20190613.28\",\"releaseName\":\"Release-3\",\"repoProvider\":\"GitHub\",\"repoName\":\"KirtMorgan/Web_Sparta\",\"collectionUrl\":\"https://dev.azure.com/kirtmorgan/\",\"teamProject\":\"a41423b4-0162-41f0-9258-bb857889186a\",\"slotName\":\"production\"}",
-                "start_time": "2019-06-13T14:43:29.3129727Z",
-                "end_time": "2019-06-13T14:43:29.4692215Z",
-                "active": false
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/deployments",
-            "apiVersion": "2016-08-01",
-            "name": "[concat(parameters('sites_spartaportal_name'), '/e97ebab9d617482dbd65f78a66b65ec9')]",
-            "location": "UK West",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_spartaportal_name'))]"
-            ],
-            "properties": {
-                "id": "e97ebab9d617482dbd65f78a66b65ec9",
-                "status": 4,
-                "author_email": "N/A",
-                "author": "N/A",
-                "deployer": "VSTS",
-                "message": "{\"type\":\"deployment\",\"commitId\":\"3f5bfc39e88ef1b348b382aa746ab00611199c1d\",\"buildId\":\"157\",\"releaseId\":\"70\",\"buildNumber\":\"20190613.32\",\"releaseName\":\"Release-6\",\"repoProvider\":\"GitHub\",\"repoName\":\"KirtMorgan/Web_Sparta\",\"collectionUrl\":\"https://dev.azure.com/kirtmorgan/\",\"teamProject\":\"a41423b4-0162-41f0-9258-bb857889186a\",\"slotName\":\"production\"}",
-                "start_time": "2019-06-13T15:59:17.9467776Z",
-                "end_time": "2019-06-13T15:59:18.1031058Z",
-                "active": false
             }
         },
         {
@@ -934,9 +740,9 @@
         {
             "type": "Microsoft.Sql/servers/databases/advisors",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartadb2_name'), '/SpartaDB/CreateIndex')]",
+            "name": "[concat(parameters('servers_spartadb2_name'), '/spartadb/CreateIndex')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartadb2_name'))]"
             ],
             "properties": {
@@ -946,9 +752,9 @@
         {
             "type": "Microsoft.Sql/servers/databases/advisors",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartaportal_name'), '/SpartaDB/CreateIndex')]",
+            "name": "[concat(parameters('servers_spartaportal_name'), '/spartadb/CreateIndex')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartaportal_name'))]"
             ],
             "properties": {
@@ -958,9 +764,9 @@
         {
             "type": "Microsoft.Sql/servers/databases/advisors",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartadb2_name'), '/SpartaDB/DbParameterization')]",
+            "name": "[concat(parameters('servers_spartadb2_name'), '/spartadb/DbParameterization')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartadb2_name'))]"
             ],
             "properties": {
@@ -970,9 +776,9 @@
         {
             "type": "Microsoft.Sql/servers/databases/advisors",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartaportal_name'), '/SpartaDB/DbParameterization')]",
+            "name": "[concat(parameters('servers_spartaportal_name'), '/spartadb/DbParameterization')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartaportal_name'))]"
             ],
             "properties": {
@@ -982,9 +788,9 @@
         {
             "type": "Microsoft.Sql/servers/databases/advisors",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartadb2_name'), '/SpartaDB/DefragmentIndex')]",
+            "name": "[concat(parameters('servers_spartadb2_name'), '/spartadb/DefragmentIndex')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartadb2_name'))]"
             ],
             "properties": {
@@ -994,9 +800,9 @@
         {
             "type": "Microsoft.Sql/servers/databases/advisors",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartaportal_name'), '/SpartaDB/DefragmentIndex')]",
+            "name": "[concat(parameters('servers_spartaportal_name'), '/spartadb/DefragmentIndex')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartaportal_name'))]"
             ],
             "properties": {
@@ -1006,9 +812,9 @@
         {
             "type": "Microsoft.Sql/servers/databases/advisors",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartadb2_name'), '/SpartaDB/DropIndex')]",
+            "name": "[concat(parameters('servers_spartadb2_name'), '/spartadb/DropIndex')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartadb2_name'))]"
             ],
             "properties": {
@@ -1018,9 +824,9 @@
         {
             "type": "Microsoft.Sql/servers/databases/advisors",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartaportal_name'), '/SpartaDB/DropIndex')]",
+            "name": "[concat(parameters('servers_spartaportal_name'), '/spartadb/DropIndex')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartaportal_name'))]"
             ],
             "properties": {
@@ -1030,9 +836,9 @@
         {
             "type": "Microsoft.Sql/servers/databases/advisors",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartadb2_name'), '/SpartaDB/ForceLastGoodPlan')]",
+            "name": "[concat(parameters('servers_spartadb2_name'), '/spartadb/ForceLastGoodPlan')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartadb2_name'))]"
             ],
             "properties": {
@@ -1042,9 +848,9 @@
         {
             "type": "Microsoft.Sql/servers/databases/advisors",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartaportal_name'), '/SpartaDB/ForceLastGoodPlan')]",
+            "name": "[concat(parameters('servers_spartaportal_name'), '/spartadb/ForceLastGoodPlan')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartaportal_name'))]"
             ],
             "properties": {
@@ -1054,10 +860,10 @@
         {
             "type": "Microsoft.Sql/servers/databases/auditingPolicies",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartadb2_name'), '/SpartaDB/Default')]",
+            "name": "[concat(parameters('servers_spartadb2_name'), '/spartadb/Default')]",
             "location": "East US",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartadb2_name'))]"
             ],
             "properties": {
@@ -1067,10 +873,10 @@
         {
             "type": "Microsoft.Sql/servers/databases/auditingPolicies",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartaportal_name'), '/SpartaDB/Default')]",
+            "name": "[concat(parameters('servers_spartaportal_name'), '/spartadb/Default')]",
             "location": "Australia East",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartaportal_name'))]"
             ],
             "properties": {
@@ -1080,10 +886,10 @@
         {
             "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartadb2_name'), '/SpartaDB/Default')]",
+            "name": "[concat(parameters('servers_spartadb2_name'), '/spartadb/Default')]",
             "location": "East US",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartadb2_name'))]"
             ],
             "properties": {
@@ -1093,10 +899,10 @@
         {
             "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartaportal_name'), '/SpartaDB/Default')]",
+            "name": "[concat(parameters('servers_spartaportal_name'), '/spartadb/Default')]",
             "location": "Australia East",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartaportal_name'))]"
             ],
             "properties": {
@@ -1106,9 +912,9 @@
         {
             "type": "Microsoft.Sql/servers/databases/securityAlertPolicies",
             "apiVersion": "2018-06-01-preview",
-            "name": "[concat(parameters('servers_spartadb2_name'), '/SpartaDB/Default')]",
+            "name": "[concat(parameters('servers_spartadb2_name'), '/spartadb/Default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartadb2_name'))]"
             ],
             "properties": {
@@ -1126,9 +932,9 @@
         {
             "type": "Microsoft.Sql/servers/databases/securityAlertPolicies",
             "apiVersion": "2018-06-01-preview",
-            "name": "[concat(parameters('servers_spartaportal_name'), '/SpartaDB/Default')]",
+            "name": "[concat(parameters('servers_spartaportal_name'), '/spartadb/Default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartaportal_name'))]"
             ],
             "properties": {
@@ -1146,10 +952,10 @@
         {
             "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartadb2_name'), '/SpartaDB/current')]",
+            "name": "[concat(parameters('servers_spartadb2_name'), '/spartadb/current')]",
             "location": "East US",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartadb2_name'))]"
             ],
             "properties": {
@@ -1159,10 +965,10 @@
         {
             "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
             "apiVersion": "2014-04-01",
-            "name": "[concat(parameters('servers_spartaportal_name'), '/SpartaDB/current')]",
+            "name": "[concat(parameters('servers_spartaportal_name'), '/spartadb/current')]",
             "location": "Australia East",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartaportal_name'))]"
             ],
             "properties": {
@@ -1172,9 +978,9 @@
         {
             "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments",
             "apiVersion": "2017-03-01-preview",
-            "name": "[concat(parameters('servers_spartadb2_name'), '/SpartaDB/Default')]",
+            "name": "[concat(parameters('servers_spartadb2_name'), '/spartadb/Default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartadb2_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartadb2_name'))]"
             ],
             "properties": {
@@ -1187,16 +993,15 @@
         {
             "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments",
             "apiVersion": "2017-03-01-preview",
-            "name": "[concat(parameters('servers_spartaportal_name'), '/SpartaDB/Default')]",
+            "name": "[concat(parameters('servers_spartaportal_name'), '/spartadb/Default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'SpartaDB')]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_spartaportal_name'), 'spartadb')]",
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_spartaportal_name'))]"
             ],
             "properties": {
                 "recurringScans": {
                     "isEnabled": false,
-                    "emailSubscriptionAdmins": true,
-                    "emails": []
+                    "emailSubscriptionAdmins": true
                 }
             }
         }

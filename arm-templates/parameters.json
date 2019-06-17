@@ -11,13 +11,13 @@
         "servers_spartaportal_name": {
             "value": null
         },
-        "serverfarms_ASP_spartastudentportal_bcdb_name": {
+        "serverfarms_ASP_spartastudentportal_ab7b_name": {
             "value": null
         },
-        "components_AI_spartastudentportal_82e3_name": {
+        "components_AI_spartastudentportal_a399_name": {
             "value": null
         },
-        "alertrules_Failure_Anomalies___AI_spartastudentportal_82e3_name": {
+        "alertrules_Failure_Anomalies___AI_spartastudentportal_a399_name": {
             "value": null
         }
     }
