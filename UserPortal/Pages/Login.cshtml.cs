@@ -49,6 +49,7 @@ namespace UserPortal.Pages
               HttpContext.Session.SetString("Test", "1");
               return RedirectToPage("/Users/Index");
             }
+            return Page();
         }
 
         public class InputModel
